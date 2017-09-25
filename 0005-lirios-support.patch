@@ -1,0 +1,27 @@
+From 731f701c9d3153ed9457d5e534f3313f14f0600a Mon Sep 17 00:00:00 2001
+From: Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Date: Fri, 22 Sep 2017 16:10:05 +0200
+Subject: [PATCH] cmd,dirs: treat "liri" the same way as "arch"
+
+Liri is a derivative of Arch and should use the same support code.
+
+Signed-off-by: Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+---
+ cmd/cmd.go   | 2 +-
+ dirs/dirs.go | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmd/cmd.go b/cmd/cmd.go
+index 9d2a2f2d7c..b5f4f56d2f 100644
+--- a/cmd/cmd.go
++++ b/cmd/cmd.go
+@@ -67,7 +67,7 @@ func distroSupportsReExec() bool {
+ 		return false
+ 	}
+ 	switch release.ReleaseInfo.ID {
+-	case "fedora", "centos", "rhel", "opensuse", "suse", "poky", "arch":
++	case "fedora", "centos", "rhel", "opensuse", "suse", "poky", "arch", "lirios":
+ 		logger.Debugf("re-exec not supported on distro %q yet", release.ReleaseInfo.ID)
+ 		return false
+ 	}
+
